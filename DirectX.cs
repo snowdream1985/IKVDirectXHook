@@ -30,7 +30,7 @@ using SharpDX.Direct3D9;
 
 namespace IKVDirectXHook
 {
-    public class DirectX : EasyHook.IEntryPoint
+    public class D3D9Hook : IEntryPoint
     {
         public Device deviceGlobal;
         const int D3D9_DEVICE_METHOD_COUNT = 119;
@@ -89,7 +89,7 @@ namespace IKVDirectXHook
         [DllImport("user32.dll")]
         static extern short GetAsyncKeyState(System.Windows.Forms.Keys vKey);
 
-        public Main(RemoteHooking.IContext InContext, String InChannelName)
+        public D3D9Hook(RemoteHooking.IContext InContext, String InChannelName)
         {
             Interface = RemoteHooking.IpcConnectClient<Interface>(InChannelName);
             Interface.Ping();
