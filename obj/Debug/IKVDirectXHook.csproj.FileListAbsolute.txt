@@ -1,0 +1,9 @@
+C:\Users\Yadigar\Documents\Visual Studio 2015\Projects\IKVDirectXHook\IKVDirectXHook\bin\Debug\IKVDirectXHook.dll
+C:\Users\Yadigar\Documents\Visual Studio 2015\Projects\IKVDirectXHook\IKVDirectXHook\bin\Debug\IKVDirectXHook.pdb
+C:\Users\Yadigar\Documents\Visual Studio 2015\Projects\IKVDirectXHook\IKVDirectXHook\bin\Debug\EasyHook.dll
+C:\Users\Yadigar\Documents\Visual Studio 2015\Projects\IKVDirectXHook\IKVDirectXHook\bin\Debug\SharpDX.Direct3D9.dll
+C:\Users\Yadigar\Documents\Visual Studio 2015\Projects\IKVDirectXHook\IKVDirectXHook\bin\Debug\SharpDX.dll
+C:\Users\Yadigar\Documents\Visual Studio 2015\Projects\IKVDirectXHook\IKVDirectXHook\obj\Debug\IKVDirectXHook.dll
+C:\Users\Yadigar\Documents\Visual Studio 2015\Projects\IKVDirectXHook\IKVDirectXHook\obj\Debug\IKVDirectXHook.pdb
+C:\Users\Yadigar\Documents\Visual Studio 2015\Projects\IKVDirectXHook\IKVDirectXHook\bin\Debug\System.Net.Http.dll
+C:\Users\Yadigar\Documents\Visual Studio 2015\Projects\IKVDirectXHook\IKVDirectXHook\bin\Debug\System.Net.Http.xml
