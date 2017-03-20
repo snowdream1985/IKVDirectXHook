@@ -107,11 +107,11 @@ namespace IKVDirectXHook
         {
             Device device = (Device)devicePtr;
 
-            VertexBuffer Stream_Data;
+            VertexBuffer streamData;
             int Offset = 0;
             int Stride = 0;
-            device.GetStreamSource(0, out Stream_Data, out Offset, out Stride);
-            Stream_Data.Dispose();
+            device.GetStreamSource(0, out streamData, out Offset, out Stride);
+            streamData.Dispose();
             if (Startlog)
             {
                 if (Stride == iStride)
