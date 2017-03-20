@@ -53,7 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="D3D9.cs" />
-    <Compile Include="DirectX.cs" />
+    <Compile Include="D3D9Hook.cs" />
     <Compile Include="DXLogger.cs" />
     <Compile Include="Interface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
