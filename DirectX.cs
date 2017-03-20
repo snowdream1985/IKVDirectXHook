@@ -30,7 +30,7 @@ using SharpDX.Direct3D9;
 
 namespace IKVDirectXHook
 {
-    public class Main : EasyHook.IEntryPoint
+    public class DirectX : EasyHook.IEntryPoint
     {
         public Device deviceGlobal;
         const int D3D9_DEVICE_METHOD_COUNT = 119;
@@ -358,7 +358,7 @@ namespace IKVDirectXHook
                     }
                 }
 
-                if (GetAsyncKeyState(System.Windows.Forms.Keys.F4) != 0)
+                if (GetAsyncKeyState(System.Windows.Forms.Keys.Control) != 0)
                 {
                     if (iBaseTex > 0)
                     {
