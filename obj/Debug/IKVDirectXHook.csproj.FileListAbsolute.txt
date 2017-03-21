@@ -7,3 +7,4 @@ C:\Users\Yadigar\Documents\Visual Studio 2015\Projects\IKVDirectXHook\IKVDirectX
 C:\Users\Yadigar\Documents\Visual Studio 2015\Projects\IKVDirectXHook\IKVDirectXHook\obj\Debug\IKVDirectXHook.pdb
 C:\Users\Yadigar\Documents\Visual Studio 2015\Projects\IKVDirectXHook\IKVDirectXHook\bin\Debug\System.Net.Http.dll
 C:\Users\Yadigar\Documents\Visual Studio 2015\Projects\IKVDirectXHook\IKVDirectXHook\bin\Debug\System.Net.Http.xml
+C:\Users\Yadigar\Documents\Visual Studio 2015\Projects\IKVDirectXHook\IKVDirectXHook\obj\Debug\IKVDirectXHook.csprojResolveAssemblyReference.cache
