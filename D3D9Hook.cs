@@ -71,7 +71,7 @@ namespace IKVDirectXHook
         Int32 tickCount = 0;
         float frameRate = 0;
 
-        static SharpDX.Direct3D9.Texture redTexture = null;
+        static Texture redTexture = null;
         static byte[] red =
         {
             0x42, 0x4D, 0x3A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x36, 0x00, 0x00, 0x00, 0x28, 0x00,
@@ -103,7 +103,7 @@ namespace IKVDirectXHook
             Hook();
         }
 
-        int DrawIndexedPrimitiveHook(IntPtr devicePtr, PrimitiveType primitiveType, int baseVertexIndex, int minimumVertexIndex, int numVertices, int startIndex, int primCount)
+        private int DrawIndexedPrimitiveHook(IntPtr devicePtr, PrimitiveType primitiveType, int baseVertexIndex, int minimumVertexIndex, int numVertices, int startIndex, int primCount)
         {
             Device device = (Device)devicePtr;
 
@@ -133,7 +133,7 @@ namespace IKVDirectXHook
 
                     if (baseTextures[iBaseTex].NativePointer == baseTexture.NativePointer)
                     {
-                        bTex = baseTexture.LevelCount;
+                        bTex = baseTexture.LevelOfDetails;
                         baseVertexIndexFound = baseVertexIndex;
                         minVertexIndexFound = minimumVertexIndex;
                         numVerticesFound = numVertices;
@@ -176,7 +176,7 @@ namespace IKVDirectXHook
             return Result.Ok.Code;
         }
 
-        int EndSceneHook(IntPtr devicePtr)
+        private int EndSceneHook(IntPtr devicePtr)
         {
             Frame();
             Device device = (Device)devicePtr;
@@ -207,7 +207,11 @@ namespace IKVDirectXHook
             bTex), device.Viewport.Width - 170, device.Viewport.Height - 230);
         }
 
-        void DrawLine(Device device)
+        /// <summary>
+        ///     
+        /// </summary>
+        /// <param name="device">DX</param>
+        private void DrawLine(Device device)
         {
             try
             {
@@ -216,7 +220,7 @@ namespace IKVDirectXHook
                     line = new Line(device);
                     vLine[0] = new Vector2();
                     vLine[1] = new Vector2();
-                    col = new ColorBGRA(0f, 100f, 0f, 1f);
+                    col = new ColorBGRA(0f, 100f, 0f, 0f);
                 }
 
                 vLine[0].X = device.Viewport.Width - 180;
@@ -243,6 +247,13 @@ namespace IKVDirectXHook
 
         }
 
+        /// <summary>
+        ///     
+        /// </summary>
+        /// <param name="device">DX Object</param>
+        /// <param name="hook">String</param>
+        /// <param name="x">Position X</param>
+        /// <param name="y">Position Y</param>
         public void Text(Device device, string hook, int x, int y)
         {
             try
@@ -272,6 +283,9 @@ namespace IKVDirectXHook
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void Hook()
         {
             id3dDeviceFunctionAddresses = new List<IntPtr>();
@@ -292,7 +306,7 @@ namespace IKVDirectXHook
             Direct3DDevice_IndexPrimitiveHook = LocalHook.Create(id3dDeviceFunctionAddresses[(int)Direct3DDevice9FunctionOrdinals.DrawIndexedPrimitive], new Direct3D9Device_IndexPrimitiveDelegate(DrawIndexedPrimitiveHook), this);
 
             Direct3DDevice_IndexPrimitiveHook.ThreadACL.SetExclusiveACL(new Int32[1]);
-            Interface.Text("DEBUG: Hooking game.." + EasyHook.RemoteHooking.GetCurrentProcessId().ToString());
+            Interface.Text("DEBUG: Hooking game.." + RemoteHooking.GetCurrentProcessId().ToString());
         }
 
         protected IntPtr[] GetVTblAddresses(IntPtr pointer, int numberOfMethods)
@@ -369,5 +383,4 @@ namespace IKVDirectXHook
             }
         }
     }
-
 }
